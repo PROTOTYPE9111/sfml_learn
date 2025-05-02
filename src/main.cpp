@@ -24,6 +24,10 @@ int main(){
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)))) { herosprite.move({0.1, 0}); herosprite.setTextureRect(sf::IntRect({0, 192}, {96, 96})); } 
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)))) { herosprite.move({0, -0.1}); herosprite.setTextureRect(sf::IntRect({0, 288}, {96, 96})); } 
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)))) { herosprite.move({0, 0.1}); herosprite.setTextureRect(sf::IntRect({0, 0}, {96, 96})); }  
+        
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
+            herosprite.setColor(sf::Color::Red);
+        }
         window.clear();
         window.draw(herosprite);
         window.display();
