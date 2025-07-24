@@ -1,18 +1,30 @@
 {
     "version": "0.2.0",
     "configurations": [
-      {
-        "name": "Launch SFML",
-        "type": "cppdbg",
-        "request": "launch",
-        "program": "${workspaceFolder}/build/main",
-        "args": [],
-        "stopAtEntry": false,
-        "cwd": "${workspaceFolder}",
-        "environment": [],
-        "externalConsole": false,
-        "MIMode": "lldb"
-      }
+        {
+            "name": "Launch SFML",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "C/C++: g++-14 сборка и отладка активного файла",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: g++-14 сборка активного файла"
+        }
     ]
-  }
-  
+}

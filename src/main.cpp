@@ -29,16 +29,33 @@ int main(){
             }
         }
    
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)))) { herosprite.move({-0.1f*time, 0.f}); herosprite.setTextureRect(sf::IntRect({0, 96}, {96, 96})); } //добавили управление на клавиши W,S,A,D
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)))) { herosprite.move({0.1f*time, 0.f}); herosprite.setTextureRect(sf::IntRect({0, 192}, {96, 96})); } 
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)))) { herosprite.move({0.f, -0.1f*time}); herosprite.setTextureRect(sf::IntRect({0, 288}, {96, 96})); } 
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)))) { herosprite.move({0.f, 0.1f*time}); herosprite.setTextureRect(sf::IntRect({0, 0}, {96, 96})); }  
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)))) { 
+            CurrentFrame += 0.005*time;
+            if (CurrentFrame > 3) CurrentFrame -= 3;
+            herosprite.setTextureRect(sf::IntRect({96 * int(CurrentFrame), 96}, {96, 96})); 
+            herosprite.move({-0.1f*time, 0.f}); 
+        } 
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)))) { 
+            CurrentFrame += 0.005*time;
+            if (CurrentFrame > 3) CurrentFrame -= 3;
+            herosprite.setTextureRect(sf::IntRect({96 * int(CurrentFrame), 192}, {96, 96}));
+            herosprite.move({0.1f*time, 0.f}); 
+        } 
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)))) { 
+            CurrentFrame += 0.005*time;
+            if (CurrentFrame > 3) CurrentFrame -= 3;
+            herosprite.setTextureRect(sf::IntRect({96 * int(CurrentFrame), 288}, {96, 96}));
+            herosprite.move({0.f, -0.1f*time}); 
+        } 
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)))) { 
+            CurrentFrame += 0.005*time;
+            if (CurrentFrame > 3) CurrentFrame -= 3;
+            herosprite.setTextureRect(sf::IntRect({96 * int(CurrentFrame), 0}, {96, 96}));
+            herosprite.move({0.f, 0.1f*time});  }  
         
         if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
             herosprite.setColor(sf::Color::Red);
         }
-
-        if (herosprite.getPosition().x )
         window.clear();
         window.draw(herosprite);
         window.display();
